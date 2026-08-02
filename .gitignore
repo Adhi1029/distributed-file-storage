@@ -1,0 +1,33 @@
+# ── Node.js ──────────────────────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp
+.pnp.js
+
+# ── Environment & Secrets ─────────────────────────────────────
+.env
+.env.local
+.env.production
+# Keep the example so others know what vars are needed
+!.env.example
+
+# ── OS / Editor ───────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# ── Logs ─────────────────────────────────────────────────────
+logs/
+*.log
+
+# ── Misc ─────────────────────────────────────────────────────
+dist/
+build/
+coverage/

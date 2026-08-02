@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — CloudVault</title>
+  <meta name="description" content="CloudVault file storage dashboard. Upload files to AWS S3, generate share links, and manage your stored files." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── Share Modal ─────────────────────────────────────────── -->
+  <div class="modal-overlay" id="shareModalOverlay">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="shareModalTitle">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <div class="modal-icon">🔗</div>
+          <div>
+            <h2 class="modal-title" id="shareModalTitle">Shareable Link</h2>
+            <p class="modal-subtitle" id="shareModalFileName"></p>
+          </div>
+        </div>
+        <button class="modal-close" id="shareModalClose" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-desc">Anyone with this link can download the file directly. The link never expires — each visit generates a fresh secure download.</p>
+        <div class="share-link-box">
+          <span class="share-link-url" id="shareLinkUrl"></span>
+          <button class="btn--copy" id="copyShareLinkBtn">📋 Copy</button>
+        </div>
+        <div class="modal-info-row">
+          <div class="modal-info-item">
+            <span class="modal-info-label">How it works</span>
+            <span class="modal-info-value">Link → Server → S3 URL → Download</span>
+          </div>
+          <div class="modal-info-item">
+            <span class="modal-info-label">S3 URL expiry</span>
+            <span class="modal-info-value">1 hour per visit</span>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button class="btn btn--primary btn--full" id="openShareLinkBtn">↗ Open Link</button>
+          <button class="btn btn--ghost btn--full" id="closeShareModalBtn">Done</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Toast Area ───────────────────────────────────────────── -->
+  <div class="toast-area" id="toastArea"></div>
+
+  <!-- ── Navigation ──────────────────────────────────────────── -->
+  <nav class="nav" role="navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <div class="nav__logo-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        CloudVault
+      </a>
+      <ul class="nav__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="dashboard.html" class="active">Dashboard</a></li>
+        <li><a href="services.html">Pricing</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav__actions">
+        <div class="server-status-group">
+          <div class="server-pill" id="server3001"><span class="dot dot--checking"></span><span class="mono">:3001</span></div>
+          <div class="server-pill" id="server3002"><span class="dot dot--checking"></span><span class="mono">:3002</span></div>
+        </div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <button class="btn btn--ghost btn--sm" id="refreshBtn" title="Refresh file list">
+          <svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14"><path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd"/></svg>
+          Refresh
+        </button>
+        <button class="nav__hamburger" id="navHamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+  <div class="nav__mobile-menu" id="navMobileMenu">
+    <a href="index.html">Home</a>
+    <a href="dashboard.html" class="active">Dashboard</a>
+    <a href="services.html">Pricing</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- ── Dashboard Hero ───────────────────────────────────────── -->
+  <div class="page-wrap">
+    <div class="dash-hero">
+      <div class="dash-hero__inner">
+        <div>
+          <h1 class="dash-hero__title">File <span class="gradient-text">Dashboard</span></h1>
+          <p class="dash-hero__sub">Upload files to S3 · Generate share links · Manage your storage</p>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+          <div class="api-url-row" style="flex-direction:row;align-items:center;gap:8px">
+            <span class="form-label-sm" style="white-space:nowrap">API URL</span>
+            <div class="url-input-group">
+              <span class="url-prefix">http://</span>
+              <input type="text" id="apiBaseUrl" class="url-input" value="localhost:3001" placeholder="localhost:3001" style="width:160px" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Main Grid ──────────────────────────────────────────── -->
+    <div class="dash-main">
+
+      <!-- Upload Card -->
+      <div class="card upload-card">
+        <div class="card-header">
+          <h2 class="card-title">
+            <svg viewBox="0 0 24 24" fill="none" width="18" height="18"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Upload File
+          </h2>
+          <span class="chip">Max 50 MB</span>
+        </div>
+
+        <div class="drop-zone" id="dropZone">
+          <input type="file" id="fileInput" class="file-input" />
+          <div class="drop-icon">
+            <svg viewBox="0 0 64 64" fill="none" width="52" height="52">
+              <circle cx="32" cy="32" r="31" stroke="url(#dg1)" stroke-width="1.5" stroke-dasharray="4 3"/>
+              <path d="M32 20v16M24 28l8-8 8 8" stroke="url(#dg2)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M20 44h24" stroke="url(#dg2)" stroke-width="2" stroke-linecap="round"/>
+              <defs>
+                <linearGradient id="dg1" x1="1" y1="1" x2="63" y2="63" gradientUnits="userSpaceOnUse"><stop stop-color="#6366f1"/><stop offset="1" stop-color="#a855f7"/></linearGradient>
+                <linearGradient id="dg2" x1="20" y1="20" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#818cf8"/><stop offset="1" stop-color="#c084fc"/></linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <p class="drop-title">Drag &amp; drop your file here</p>
+          <p class="drop-subtitle">or <button class="link-btn" id="browseBtn">browse from computer</button></p>
+          <p class="drop-selected" id="selectedFileName"></p>
+        </div>
+
+        <div class="progress-wrap" id="progressWrap" style="display:none">
+          <div class="progress-info">
+            <span id="progressLabel">Uploading…</span>
+            <span id="progressPct">0%</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" id="progressFill"></div>
+          </div>
+        </div>
+
+        <div class="upload-footer">
+          <button class="btn btn--upload" id="uploadBtn" disabled>
+            <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg>
+            Upload to S3
+          </button>
+        </div>
+      </div>
+
+      <!-- Files Card -->
+      <div class="card files-card">
+        <div class="card-header">
+          <h2 class="card-title">
+            <svg viewBox="0 0 24 24" fill="none" width="18" height="18"><path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V7z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+            Stored Files
+          </h2>
+          <span class="chip" id="fileCountChip">0 files</span>
+        </div>
+
+        <div class="empty-state" id="emptyState">
+          <svg viewBox="0 0 80 80" fill="none" width="64" height="64">
+            <circle cx="40" cy="40" r="36" fill="var(--indigo-dim)"/>
+            <path d="M28 34a12 12 0 1124 0v1M20 54l5-14h30l5 14H20z" stroke="var(--indigo)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <p class="empty-title">No files stored yet</p>
+          <p class="empty-subtitle">Upload your first file to see it appear here.</p>
+        </div>
+
+        <div class="skeleton-list" id="skeletonList" style="display:none">
+          <div class="skeleton-row"></div>
+          <div class="skeleton-row"></div>
+          <div class="skeleton-row"></div>
+        </div>
+
+        <div class="file-table-wrap" id="fileTableWrap" style="display:none">
+          <table class="file-table">
+            <thead>
+              <tr>
+                <th>File</th>
+                <th>Type</th>
+                <th>Size</th>
+                <th>Uploaded</th>
+                <th style="text-align:right">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="fileTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+    </div><!-- /dash-main -->
+  </div><!-- /page-wrap -->
+
+  <script src="nav.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CloudVault — Distributed File Storage</title>
+  <meta name="description" content="Enterprise-grade distributed file storage powered by AWS S3, DynamoDB and Nginx load balancing. Upload, manage and share files securely at scale." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── Navigation ──────────────────────────────────────────── -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <div class="nav__logo-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        CloudVault
+      </a>
+      <ul class="nav__links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="services.html">Pricing</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav__actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <a href="dashboard.html" class="btn btn--primary btn--sm">Launch App →</a>
+        <button class="nav__hamburger" id="navHamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="nav__mobile-menu" id="navMobileMenu">
+    <a href="index.html" class="active">Home</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="services.html">Pricing</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="dashboard.html" class="btn btn--primary" style="margin-top:8px">Launch App →</a>
+  </div>
+
+  <!-- ── Hero ────────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero__bg-glow"></div>
+    <div class="hero__content">
+      <div class="hero__text">
+        <div class="hero__tag">
+          <span>⚡</span> Now with Shareable Links
+        </div>
+        <h1 class="hero__title">
+          Store, Share &amp;<br/>
+          <span class="gradient-text">Manage Files</span><br/>
+          at Scale
+        </h1>
+        <p class="hero__subtitle">
+          CloudVault is a fault-tolerant distributed file storage system powered by AWS S3, DynamoDB, and intelligent Nginx load balancing. Zero disk usage — files stream directly to the cloud.
+        </p>
+        <div class="hero__cta">
+          <a href="dashboard.html" class="btn btn--primary btn--lg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Open Dashboard
+          </a>
+          <a href="about.html" class="btn btn--secondary btn--lg">Learn More</a>
+        </div>
+        <div class="hero__stats">
+          <div>
+            <div class="hero__stat-value">99.9%</div>
+            <div class="hero__stat-label">Uptime SLA</div>
+          </div>
+          <div>
+            <div class="hero__stat-value">50MB</div>
+            <div class="hero__stat-label">Max file size</div>
+          </div>
+          <div>
+            <div class="hero__stat-value">∞</div>
+            <div class="hero__stat-label">Share links</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero__visual">
+        <div class="arch-card">
+          <div class="arch-title">System Architecture</div>
+          <div style="display:flex;flex-direction:column;gap:8px;align-items:center">
+            <div class="arch-node arch-node--client" style="width:100%">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="5" y="6" width="14" height="12" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M9 19h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              Client Browser
+            </div>
+            <div class="arch-arrow" style="font-size:1.2rem">↓</div>
+            <div class="arch-node arch-node--nginx" style="width:100%">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M3 12l9-9 9 9M5 10v9a1 1 0 001 1h4v-5h4v5h4a1 1 0 001-1v-9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Nginx Load Balancer
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;width:100%">
+              <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+                <div class="arch-arrow">↓</div>
+                <div class="arch-node arch-node--node" style="width:100%;justify-content:center;font-size:0.75rem">Node :3001</div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+                <div class="arch-arrow">↓</div>
+                <div class="arch-node arch-node--node" style="width:100%;justify-content:center;font-size:0.75rem">Node :3002</div>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;width:100%">
+              <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+                <div class="arch-arrow">↓</div>
+                <div class="arch-node arch-node--s3" style="width:100%;justify-content:center;font-size:0.75rem">AWS S3</div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+                <div class="arch-arrow">↓</div>
+                <div class="arch-node arch-node--dynamo" style="width:100%;justify-content:center;font-size:0.75rem">DynamoDB</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Features ─────────────────────────────────────────────── -->
+  <section class="section" style="border-top:1px solid var(--border)">
+    <div class="container">
+      <div class="text-center mb-12">
+        <div class="section-label">Why CloudVault</div>
+        <h2 class="section-title">Everything you need for<br/><span class="gradient-text">cloud file storage</span></h2>
+        <p class="section-subtitle" style="margin:0 auto">Built on battle-tested AWS infrastructure. Enterprise reliability without enterprise complexity.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon feature-icon--indigo">🚀</div>
+          <h3>Zero Disk Usage</h3>
+          <p>Files stream directly from your browser to S3 via multer-s3. No temporary copies ever touch the server filesystem.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon feature-icon--purple">🔗</div>
+          <h3>Permanent Share Links</h3>
+          <p>Generate a shareable link for any file. The link never expires — each visit gets a fresh 1-hour presigned S3 URL.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon feature-icon--green">🛡</div>
+          <h3>Fault Tolerant</h3>
+          <p>Nginx load balances across two Node.js instances. If one fails 3 health checks, it's removed from the pool automatically.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon feature-icon--blue">🗄</div>
+          <h3>DynamoDB Metadata</h3>
+          <p>File IDs, S3 keys, names, MIME types, sizes and timestamps are stored in DynamoDB for instant lookups at any scale.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon feature-icon--orange">⚡</div>
+          <h3>Presigned URLs</h3>
+          <p>Downloads use time-limited presigned S3 URLs. Your AWS credentials never leave the server — ever.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon feature-icon--red">🌐</div>
+          <h3>Fully Responsive</h3>
+          <p>Dashboard adapts to any screen size. Light and dark themes follow your OS preference with a manual override button.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Quick Links ───────────────────────────────────────────── -->
+  <section class="section--sm" style="background:var(--bg-surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+    <div class="container">
+      <div class="text-center mb-8">
+        <h2 class="section-title" style="font-size:1.6rem">Quick Links</h2>
+        <p class="section-subtitle" style="margin:0 auto;font-size:0.95rem">Jump to any section of the site</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px">
+        <a href="dashboard.html" class="card" style="display:flex;flex-direction:column;gap:12px;padding:24px;text-decoration:none">
+          <div class="feature-icon feature-icon--indigo" style="margin-bottom:0">📁</div>
+          <div>
+            <div style="font-weight:700;margin-bottom:4px">Dashboard</div>
+            <div style="font-size:0.82rem;color:var(--text-muted)">Upload &amp; manage your files</div>
+          </div>
+        </a>
+        <a href="services.html" class="card" style="display:flex;flex-direction:column;gap:12px;padding:24px;text-decoration:none">
+          <div class="feature-icon feature-icon--purple" style="margin-bottom:0">💎</div>
+          <div>
+            <div style="font-weight:700;margin-bottom:4px">Pricing Plans</div>
+            <div style="font-size:0.82rem;color:var(--text-muted)">Free, Pro &amp; Enterprise tiers</div>
+          </div>
+        </a>
+        <a href="about.html" class="card" style="display:flex;flex-direction:column;gap:12px;padding:24px;text-decoration:none">
+          <div class="feature-icon feature-icon--green" style="margin-bottom:0">🏢</div>
+          <div>
+            <div style="font-weight:700;margin-bottom:4px">About Us</div>
+            <div style="font-size:0.82rem;color:var(--text-muted)">Mission, team &amp; tech stack</div>
+          </div>
+        </a>
+        <a href="contact.html" class="card" style="display:flex;flex-direction:column;gap:12px;padding:24px;text-decoration:none">
+          <div class="feature-icon feature-icon--blue" style="margin-bottom:0">✉️</div>
+          <div>
+            <div style="font-weight:700;margin-bottom:4px">Contact</div>
+            <div style="font-size:0.82rem;color:var(--text-muted)">Get in touch with our team</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ──────────────────────────────────────────────────── -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to store your first file?</h2>
+      <p>No signup required. Plug in your AWS credentials and start uploading in minutes.</p>
+      <div class="cta-buttons">
+        <a href="dashboard.html" class="btn btn--primary btn--xl">Open Dashboard →</a>
+        <a href="contact.html" class="btn btn--secondary btn--xl">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ───────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="nav__logo" style="margin-bottom:12px">
+            <div class="nav__logo-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            CloudVault
+          </a>
+          <p>Distributed file storage built on AWS S3, DynamoDB and Nginx. Zero disk usage. Enterprise reliability.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="services.html">Pricing</a></li>
+            <li><a href="#">API Docs</a></li>
+            <li><a href="#">Status</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Tech Stack</h4>
+          <ul>
+            <li><a href="#">Node.js</a></li>
+            <li><a href="#">AWS S3</a></li>
+            <li><a href="#">DynamoDB</a></li>
+            <li><a href="#">Nginx</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 CloudVault. All rights reserved.</span>
+        <span>Built with ❤️ using Node.js, AWS &amp; Nginx</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="nav.js"></script>
+</body>
+</html>

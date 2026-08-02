@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — CloudVault</title>
+  <meta name="description" content="Learn about CloudVault's mission, founding story, the team behind it and the technology stack powering distributed file storage." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav class="nav" role="navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <div class="nav__logo-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        CloudVault
+      </a>
+      <ul class="nav__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="services.html">Pricing</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav__actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <a href="dashboard.html" class="btn btn--primary btn--sm">Launch App →</a>
+        <button class="nav__hamburger" id="navHamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+  <div class="nav__mobile-menu" id="navMobileMenu">
+    <a href="index.html">Home</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="services.html">Pricing</a>
+    <a href="about.html" class="active">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <div class="page-wrap">
+
+    <!-- Page Header -->
+    <div class="page-header">
+      <div class="container">
+        <div class="section-label" style="text-align:center">Our Story</div>
+        <h1>Built for developers,<br/><span class="gradient-text">by developers</span></h1>
+        <p>CloudVault was created to solve a real problem: reliable, scalable file storage without the enterprise price tag or complexity.</p>
+      </div>
+    </div>
+
+    <!-- Mission -->
+    <section class="section">
+      <div class="container">
+        <div class="mission-grid">
+          <div>
+            <div class="section-label">Our Mission</div>
+            <h2 class="section-title" style="font-size:2rem">Making cloud storage <span class="gradient-text">accessible</span> to everyone</h2>
+            <p style="margin-bottom:28px;line-height:1.8">We believe that every developer and team, regardless of size, should have access to enterprise-grade file storage infrastructure. CloudVault brings the power of AWS S3, DynamoDB and intelligent load balancing to projects of all scales.</p>
+            <ul class="value-list">
+              <li>
+                <div class="value-icon feature-icon--indigo">🎯</div>
+                <div>
+                  <div style="font-weight:700;margin-bottom:4px">Simplicity First</div>
+                  <div style="font-size:0.88rem;color:var(--text-muted)">Complex distributed systems made simple through clean abstractions and thoughtful API design.</div>
+                </div>
+              </li>
+              <li>
+                <div class="value-icon feature-icon--purple">🔒</div>
+                <div>
+                  <div style="font-weight:700;margin-bottom:4px">Security by Default</div>
+                  <div style="font-size:0.88rem;color:var(--text-muted)">Presigned URLs, credential isolation, and zero-disk architecture keep your data safe at every step.</div>
+                </div>
+              </li>
+              <li>
+                <div class="value-icon feature-icon--green">♻️</div>
+                <div>
+                  <div style="font-weight:700;margin-bottom:4px">Zero Waste</div>
+                  <div style="font-size:0.88rem;color:var(--text-muted)">Files stream directly to S3. No temporary copies, no wasted storage, no surprise bills.</div>
+                </div>
+              </li>
+              <li>
+                <div class="value-icon feature-icon--blue">📡</div>
+                <div>
+                  <div style="font-weight:700;margin-bottom:4px">Always Available</div>
+                  <div style="font-size:0.88rem;color:var(--text-muted)">Nginx load balancing and health checks ensure requests always reach a healthy server instance.</div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <div class="card" style="padding:36px">
+              <div class="section-label" style="margin-bottom:20px">By the Numbers</div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px">
+                <div style="text-align:center;padding:20px;background:var(--bg-base);border-radius:var(--radius-md)">
+                  <div class="hero__stat-value" style="font-size:2.2rem">2</div>
+                  <div class="hero__stat-label" style="margin-top:4px">Node.js instances</div>
+                </div>
+                <div style="text-align:center;padding:20px;background:var(--bg-base);border-radius:var(--radius-md)">
+                  <div class="hero__stat-value" style="font-size:2.2rem">99.9%</div>
+                  <div class="hero__stat-label" style="margin-top:4px">Target uptime</div>
+                </div>
+                <div style="text-align:center;padding:20px;background:var(--bg-base);border-radius:var(--radius-md)">
+                  <div class="hero__stat-value" style="font-size:2.2rem">0</div>
+                  <div class="hero__stat-label" style="margin-top:4px">Bytes written locally</div>
+                </div>
+                <div style="text-align:center;padding:20px;background:var(--bg-base);border-radius:var(--radius-md)">
+                  <div class="hero__stat-value" style="font-size:2.2rem">1hr</div>
+                  <div class="hero__stat-label" style="margin-top:4px">Presigned URL TTL</div>
+                </div>
+              </div>
+              <div style="margin-top:24px;padding:18px;background:var(--indigo-dim);border:1px solid rgba(99,102,241,0.2);border-radius:var(--radius-md)">
+                <div style="font-size:0.82rem;font-weight:600;color:var(--indigo-light);margin-bottom:6px">Tech Stack</div>
+                <div style="display:flex;flex-wrap:wrap;gap:8px">
+                  <span class="tag tag--indigo">Node.js</span>
+                  <span class="tag tag--indigo">Express</span>
+                  <span class="tag tag--purple">AWS S3</span>
+                  <span class="tag tag--purple">DynamoDB</span>
+                  <span class="tag tag--green">Nginx</span>
+                  <span class="tag tag--green">multer-s3</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section class="section--sm" style="background:var(--bg-surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+      <div class="container">
+        <div class="text-center mb-12">
+          <div class="section-label">The Team</div>
+          <h2 class="section-title">Meet the people behind CloudVault</h2>
+          <p class="section-subtitle" style="margin:0 auto">A small, passionate team obsessed with distributed systems, cloud infrastructure and great developer experience.</p>
+        </div>
+        <div class="team-grid">
+          <div class="team-card">
+            <div class="team-avatar">🧑‍💻</div>
+            <div class="team-name">Adithya Raj</div>
+            <div class="team-role">Founder &amp; Lead Engineer</div>
+            <div class="team-bio">Full-stack engineer with deep expertise in distributed systems, AWS infrastructure and Node.js. Built CloudVault from the ground up.</div>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">👩‍🎨</div>
+            <div class="team-name">Priya Sharma</div>
+            <div class="team-role">Product Designer</div>
+            <div class="team-bio">Design systems specialist focused on accessibility and delightful user experiences. Created the CloudVault design language.</div>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">🧑‍🔬</div>
+            <div class="team-name">Arjun Menon</div>
+            <div class="team-role">Infrastructure Engineer</div>
+            <div class="team-bio">AWS certified architect specializing in high-availability systems, S3 optimisation and DynamoDB schema design.</div>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">👩‍💼</div>
+            <div class="team-name">Kavya Nair</div>
+            <div class="team-role">DevOps Engineer</div>
+            <div class="team-bio">Nginx guru and CI/CD specialist. Manages load balancing strategy, health check tuning and deployment pipelines.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="container">
+        <h2>Want to join the team?</h2>
+        <p>We're always looking for talented engineers who love distributed systems and cloud infrastructure.</p>
+        <div class="cta-buttons">
+          <a href="contact.html" class="btn btn--primary btn--xl">Get in Touch</a>
+          <a href="dashboard.html" class="btn btn--secondary btn--xl">Try the App</a>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /page-wrap -->
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__bottom" style="border-top:none;padding-top:0">
+        <span>© 2026 CloudVault. All rights reserved.</span>
+        <div style="display:flex;gap:24px">
+          <a href="index.html" style="color:var(--text-muted);font-size:0.82rem">Home</a>
+          <a href="services.html" style="color:var(--text-muted);font-size:0.82rem">Pricing</a>
+          <a href="contact.html" style="color:var(--text-muted);font-size:0.82rem">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="nav.js"></script>
+</body>
+</html>

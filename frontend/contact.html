@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — CloudVault</title>
+  <meta name="description" content="Get in touch with the CloudVault team. Contact form, email, phone number, and office location." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav class="nav" role="navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <div class="nav__logo-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        CloudVault
+      </a>
+      <ul class="nav__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="services.html">Pricing</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+      <div class="nav__actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <a href="dashboard.html" class="btn btn--primary btn--sm">Launch App →</a>
+        <button class="nav__hamburger" id="navHamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+  <div class="nav__mobile-menu" id="navMobileMenu">
+    <a href="index.html">Home</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="services.html">Pricing</a>
+    <a href="about.html">About</a>
+    <a href="contact.html" class="active">Contact</a>
+  </div>
+
+  <div class="page-wrap">
+
+    <!-- Page Header -->
+    <div class="page-header">
+      <div class="container">
+        <div class="section-label" style="text-align:center">Contact Us</div>
+        <h1>We'd love to <span class="gradient-text">hear from you</span></h1>
+        <p>Whether you have a question, feedback, a feature request or a sales enquiry — our team is ready to help.</p>
+      </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section class="section">
+      <div class="container">
+        <div class="contact-grid">
+
+          <!-- Contact Info -->
+          <div>
+            <h2 style="font-size:1.5rem;margin-bottom:8px">Get in touch</h2>
+            <p style="font-size:0.9rem;margin-bottom:32px;line-height:1.7">Reach us through any of the channels below. For technical support, please include your file ID or error message for faster resolution.</p>
+
+            <div class="contact-info">
+              <div class="contact-item">
+                <div class="contact-icon">✉️</div>
+                <div>
+                  <div class="contact-item-label">Email</div>
+                  <div class="contact-item-value"><a href="mailto:hello@cloudvault.dev" style="color:var(--indigo-light)">hello@cloudvault.dev</a></div>
+                  <div class="contact-item-sub">We reply within 24 hours on business days</div>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">📞</div>
+                <div>
+                  <div class="contact-item-label">Phone</div>
+                  <div class="contact-item-value"><a href="tel:+918012345678" style="color:var(--text-primary)">+91 80 1234 5678</a></div>
+                  <div class="contact-item-sub">Mon – Fri, 9 AM – 6 PM IST</div>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">📍</div>
+                <div>
+                  <div class="contact-item-label">Office</div>
+                  <div class="contact-item-value">Bangalore, Karnataka, India</div>
+                  <div class="contact-item-sub">Electronic City, Bengaluru 560100</div>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">💬</div>
+                <div>
+                  <div class="contact-item-label">Live Chat</div>
+                  <div class="contact-item-value">Available on dashboard</div>
+                  <div class="contact-item-sub">Pro &amp; Enterprise plans only</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Map -->
+            <div class="map-wrap">
+              <iframe
+                title="CloudVault Office Location - Bengaluru"
+                src="https://maps.google.com/maps?q=Electronic+City+Bengaluru+India&output=embed&z=13"
+                loading="lazy"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="card" style="padding:40px">
+            <h2 style="font-size:1.3rem;margin-bottom:8px">Send us a message</h2>
+            <p style="font-size:0.88rem;margin-bottom:28px">Fill in the form and we'll get back to you as soon as possible.</p>
+
+            <!-- Success state -->
+            <div class="form-success" id="formSuccess">
+              <div style="font-size:3rem">✅</div>
+              <h3 style="font-size:1.2rem">Message sent!</h3>
+              <p style="font-size:0.9rem;text-align:center">Thank you for reaching out. We'll be in touch within 24 hours.</p>
+              <button class="btn btn--secondary" id="sendAnotherBtn" style="margin-top:8px">Send another message</button>
+            </div>
+
+            <form class="contact-form" id="contactForm" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="contactFirstName">First Name *</label>
+                  <input type="text" id="contactFirstName" class="form-input" placeholder="Adithya" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="contactLastName">Last Name *</label>
+                  <input type="text" id="contactLastName" class="form-input" placeholder="Raj" required />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="contactEmail">Email Address *</label>
+                <input type="email" id="contactEmail" class="form-input" placeholder="you@example.com" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="contactPhone">Phone Number</label>
+                <input type="tel" id="contactPhone" class="form-input" placeholder="+91 98765 43210" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="contactSubject">Subject *</label>
+                <select id="contactSubject" class="form-select" required>
+                  <option value="" disabled selected>Select a topic…</option>
+                  <option value="general">General Enquiry</option>
+                  <option value="support">Technical Support</option>
+                  <option value="sales">Sales / Pricing</option>
+                  <option value="partnership">Partnership</option>
+                  <option value="bug">Bug Report</option>
+                  <option value="feature">Feature Request</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="contactMessage">Message *</label>
+                <textarea id="contactMessage" class="form-textarea" placeholder="Tell us how we can help you…" required></textarea>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;font-size:0.8rem;color:var(--text-muted);margin-top:-4px">
+                <input type="checkbox" id="contactNewsletter" style="accent-color:var(--indigo)" />
+                <label for="contactNewsletter">Subscribe to product updates and news</label>
+              </div>
+              <button type="submit" class="btn btn--primary btn--full" id="submitContactBtn" style="margin-top:8px">
+                Send Message →
+              </button>
+              <p id="formError" style="color:#f87171;font-size:0.82rem;display:none;margin-top:-8px">Please fill in all required fields.</p>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Support Tiers -->
+    <section class="section--sm" style="background:var(--bg-surface);border-top:1px solid var(--border)">
+      <div class="container">
+        <div class="text-center mb-8">
+          <h2 class="section-title" style="font-size:1.6rem">Support by plan</h2>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;max-width:800px;margin:0 auto">
+          <div class="card" style="padding:24px;text-align:center">
+            <div class="feature-icon feature-icon--indigo" style="margin:0 auto 14px">🌐</div>
+            <div style="font-weight:700;margin-bottom:6px">Starter</div>
+            <div style="font-size:0.85rem;color:var(--text-muted)">Community forum &amp; documentation. Response within 72 hours.</div>
+          </div>
+          <div class="card" style="padding:24px;text-align:center;border-color:rgba(99,102,241,0.3)">
+            <div class="feature-icon feature-icon--purple" style="margin:0 auto 14px">⚡</div>
+            <div style="font-weight:700;margin-bottom:6px">Pro</div>
+            <div style="font-size:0.85rem;color:var(--text-muted)">Priority email support. Response within 24 hours on business days.</div>
+          </div>
+          <div class="card" style="padding:24px;text-align:center">
+            <div class="feature-icon feature-icon--green" style="margin:0 auto 14px">🏆</div>
+            <div style="font-weight:700;margin-bottom:6px">Enterprise</div>
+            <div style="font-size:0.85rem;color:var(--text-muted)">Dedicated account manager, phone support &amp; 4-hour SLA response.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /page-wrap -->
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__bottom" style="border-top:none;padding-top:0">
+        <span>© 2026 CloudVault. All rights reserved.</span>
+        <div style="display:flex;gap:24px">
+          <a href="index.html" style="color:var(--text-muted);font-size:0.82rem">Home</a>
+          <a href="services.html" style="color:var(--text-muted);font-size:0.82rem">Pricing</a>
+          <a href="about.html" style="color:var(--text-muted);font-size:0.82rem">About</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="nav.js"></script>
+  <script>
+    // Contact form handler
+    const form         = document.getElementById('contactForm');
+    const success      = document.getElementById('formSuccess');
+    const submitBtn    = document.getElementById('submitContactBtn');
+    const formError    = document.getElementById('formError');
+    const sendAgainBtn = document.getElementById('sendAnotherBtn');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      formError.style.display = 'none';
+
+      const first   = document.getElementById('contactFirstName').value.trim();
+      const email   = document.getElementById('contactEmail').value.trim();
+      const subject = document.getElementById('contactSubject').value;
+      const msg     = document.getElementById('contactMessage').value.trim();
+
+      if (!first || !email || !subject || !msg) {
+        formError.style.display = 'block';
+        return;
+      }
+
+      submitBtn.textContent = 'Sending…';
+      submitBtn.disabled    = true;
+
+      // Simulate network request
+      setTimeout(() => {
+        form.style.display    = 'none';
+        success.classList.add('visible');
+      }, 1200);
+    });
+
+    sendAgainBtn.addEventListener('click', () => {
+      form.reset();
+      form.style.display = 'flex';
+      success.classList.remove('visible');
+      submitBtn.textContent = 'Send Message →';
+      submitBtn.disabled    = false;
+    });
+  </script>
+</body>
+</html>
