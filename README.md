@@ -70,7 +70,7 @@ Files stream **directly from the browser to S3** via `multer-s3` — the servers
 | 🛡 **Fault tolerant** | Nginx polls both Node.js instances every 10s. Unhealthy server auto-removed |
 | 📦 **DynamoDB metadata** | File IDs, S3 keys, sizes, MIME types, timestamps — instant lookups at scale |
 | ⚡ **Presigned downloads** | Time-limited S3 URLs — your credentials are never exposed to downloaders |
-| 🎨 **Multi-page frontend** | Homepage · Dashboard · About · Pricing · Contact |
+| 🎨 **Multi-page frontend** | Homepage · Dashboard · About · Contact |
 | 🌓 **Light / Dark theme** | Follows OS preference automatically, manual toggle persists to localStorage |
 | 📱 **Fully responsive** | Works on mobile, tablet and desktop |
 
@@ -89,7 +89,6 @@ distributed-file-storage/
 │   ├── index.html            # Landing homepage
 │   ├── dashboard.html        # File manager dashboard
 │   ├── about.html            # About page
-│   ├── services.html         # Pricing & services page
 │   ├── contact.html          # Contact form & map
 │   ├── style.css             # Complete design system (light/dark themes)
 │   ├── app.js                # Dashboard logic (upload, dropdown menus, share modal)
