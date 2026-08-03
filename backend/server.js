@@ -81,6 +81,14 @@ const idFromKey = (key) => key.split('__')[0];
 // ══════════════════════════════════════════════════════════════
 
 /**
+ * GET /
+ * Root route / health check for Vercel deployment
+ */
+app.get('/', (req, res) => {
+  res.status(200).send('Distributed File Storage API is running!');
+});
+
+/**
  * GET /health
  * Nginx polls this endpoint every few seconds to decide if this
  * instance is healthy. Returns 200 with basic server info.
